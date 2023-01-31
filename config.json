@@ -6,6 +6,9 @@
         "contact_website": "https://github.com/BlivionIaG/eunologie_api",
         "contact_email": "kev29lt@gmail.com"
     },
+    "basic_cred": {
+        "admin": "admin"
+    },
     "data": {
         "path": ".\\dataset\\winequality.csv"
     },
