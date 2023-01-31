@@ -1,3 +1,4 @@
+export API_CONFIG="config.json"
 export FLASK_APP="wine_predictor_api:create_app"
 export FLASK_DEBUG=true
 PORT=5000

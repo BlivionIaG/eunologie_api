@@ -12,10 +12,13 @@ setuptools.setup(
     author="BlivionIaG",
     author_email="kev29lt@gmail.com",
     license="MIT",
-    package_data={"wine_predictor_api": ["specs/*.yaml"], "dataset": ["*.csv"]},
+    package_data={
+        "wine_predictor_api": ["specs/*.yaml", "specs/*.j2"],
+        "dataset": ["*.csv"],
+    },
     packages=["wine_predictor_api"],
     include_package_data=True,
-    install_requires=["connexion[swagger-ui]"],
+    install_requires=["connexion[swagger-ui]", "pandas", " validators", "scikit-learn"],
     keywords=[],
     classifiers=[
         "License :: OSI Approved :: MIT License",
