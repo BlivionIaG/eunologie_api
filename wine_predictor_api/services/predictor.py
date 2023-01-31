@@ -2,8 +2,8 @@ from typing import Dict, Tuple
 import numpy as np
 from sklearn.linear_model import LinearRegression
 
-from wine_predictor_api.services.learner import load_model
 from wine_predictor_api import logger
+import wine_predictor_api
 
 
 def get_features() -> Dict:
@@ -34,7 +34,9 @@ def estimate_wine_quality(**kwargs) -> Tuple[Dict, int]:
     try:
         data = prepare_data(kwargs)
 
-        linear_model: LinearRegression = load_model()
+        linear_model: LinearRegression = (
+            wine_predictor_api.services.learner.load_model()
+        )
         predicted_value = linear_model.predict(data).tolist()[0]
 
         logger.debug(f"Estimation : {predicted_value}")

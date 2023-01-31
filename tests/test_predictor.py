@@ -9,7 +9,7 @@ chlorides=0.4&free_sulfur_dioxide=5&total_sulfur_dioxide=9&\
 density=1&pH=3&sulphates=1&alcohol=12"""
 
     mocker.patch(
-        "wine_predictor_api.services.predictor.estimate_wine_quality",
+        "wine_predictor_api.services.learner.load_model",
         return_value=joblib.load(test_model_path),
         autospec=True,
     )

@@ -23,6 +23,7 @@ def load_data() -> DataFrame:
 def load_model():
     logger.debug("Loading model ...")
     model_dir_path = api_config.get("model", {}).get("path")
+
     if not validators.url(model_dir_path) and not os.path.isfile(model_dir_path):
         raise FileNotFoundError("Model path could not be found.")
 
