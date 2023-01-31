@@ -1,0 +1,18 @@
+{
+    "spec_options": {
+        "title": "Wine predictor API",
+        "description": "<p>The API provides the necessary parameters to create a prediction model using the wine dataset.</p>",
+        "contact_name": "BlivionIaG",
+        "contact_website": "https://github.com/BlivionIaG/eunologie_api",
+        "contact_email": "kev29lt@gmail.com"
+    },
+    "basic_cred": {
+        "test_user": "test_pass"
+    },
+    "data": {
+        "path": "TO_BE_FILLED"
+    },
+    "model": {
+        "path": "TO_BE_FILLED"
+    }
+}

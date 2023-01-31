@@ -1,13 +1,10 @@
-VERSION = "0.0.1"
-
-from typing import Any, Dict
 import yaml
 import json
 import logging.config
+from typing import Any, Dict
 from os import getenv, environ
 
 from connexion import FlaskApp
-from jinja2 import Environment, FileSystemLoader
 
 from wine_predictor_api import specs
 

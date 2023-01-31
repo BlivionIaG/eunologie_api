@@ -69,7 +69,7 @@ def train_model() -> Tuple[str, int]:
         mse_old = evaluate_model(existing_model, X_test, y_test)
         logger.debug(f"Mean squared error (previous model): {mse_old}")
     except FileNotFoundError as e:
-        logger.debug(f"No previous model to compare against")
+        logger.debug(f"No previous model to compare against: {e}")
 
     if new_mse < mse_old:
         save_model(linear_model, api_config.get("model", {}).get("path"))

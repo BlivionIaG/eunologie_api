@@ -1,0 +1,4 @@
+include VERSION
+include requirements.txt
+include wine_predictor_api/specs/*.yaml
+include wine_predictor_api/specs/*.j2
