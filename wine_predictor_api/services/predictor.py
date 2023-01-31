@@ -1,4 +1,4 @@
-from typing import Dict, Tuple
+from typing import Dict, Set, Tuple
 import numpy as np
 from sklearn.linear_model import LinearRegression
 
@@ -6,7 +6,7 @@ from wine_predictor_api import logger
 import wine_predictor_api
 
 
-def get_features() -> Dict:
+def get_features() -> Set[str]:
     return {
         "fixed_acidity",
         "volatile_acidity",
@@ -24,8 +24,8 @@ def get_features() -> Dict:
 
 def prepare_data(data: Dict):
     features = get_features()
-    data = [v for k, v in data.items() if k in features]
-    data_np = np.array([data])
+    t_data = [v for k, v in data.items() if k in features]
+    data_np = np.array([t_data])
 
     return data_np
 
@@ -44,10 +44,10 @@ def estimate_wine_quality(**kwargs) -> Tuple[Dict, int]:
         return {"estimation": round(predicted_value, 2)}, 200
     except ValueError as e:
         logger.error(e)
-        return str(e), 500
+        return {"error": str(e)}, 500
     except FileNotFoundError as e:
         logger.error(e)
-        return str(e), 404
+        return {"error": str(e)}, 404
     except Exception as e:
         logger.error(e)
-        return f"Internal server error. Details {str(e)}", 500
+        return {"error": f"Internal server error. Details {str(e)}"}, 500
