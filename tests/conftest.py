@@ -26,7 +26,7 @@ def test_data_path():
 
 @pytest.fixture
 def test_model_path():
-    return asset_dir_path() + "/winequality"
+    return asset_dir_path() + "/winequality.bin"
 
 
 @pytest.fixture()
@@ -41,4 +41,4 @@ def app_runner(app, pytest_configure):
 
 @pytest.hookimpl
 def pytest_configure(config):
-    os.environ["API_CONFIG"] = ".\\config.template.json"
+    os.environ["API_CONFIG"] = "config.template.json"

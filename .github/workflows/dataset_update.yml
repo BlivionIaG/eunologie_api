@@ -1,0 +1,15 @@
+name: Continuous Learning
+on:
+  push:
+    branches: # Run only on change in dataset directory from the main branch
+      - master
+    paths:
+      - dataset/**
+jobs:
+  test_code:
+    name: Update Wine Quality Model
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger the learning endpoint
+        run: |
+          curl -X 'PATCH' '${{ secrets.API_BASE_URL }}/wine/model' -H 'Authorization: Basic ${{ secrets.API_AUTH_TOKEN }}'

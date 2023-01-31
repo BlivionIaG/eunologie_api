@@ -1,0 +1,39 @@
+name: Continuous Integration
+on:
+  push:
+    branches: # Run only for feature branches
+      - "*"
+      - "!master"
+jobs:
+  test_code:
+    name: Test Code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Environment Setup
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10
+          cache: pip
+
+      - name: Cache dependecies
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: ${{ runner.os }}-pip-
+
+      - name: Install packages
+        run: |
+          pip install -U pip
+          pip install -r requirements.txt
+      - name: Run Linter
+        run: flake8 wine_predictor_api/
+
+      - name: Run Type-Checker
+        run: mypy --install-types --non-interactive wine_predictor_api/
+
+      - name: Run Unit Tests
+        run: pytest -vs
