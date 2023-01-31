@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 from os.path import dirname, join
 import setuptools
-import wine_predictor_api.__init__ as __init__
 
 setuptools.setup(
     name="Eunologie API",
-    version=__init__.VERSION,
+    version="0.0.1",
     description="API to analyse wine quality.",
     long_description=open(join(dirname(__file__), "README.md")).read(),
     long_description_content_type="text/markdown",
@@ -13,7 +12,7 @@ setuptools.setup(
     author="BlivionIaG",
     author_email="kev29lt@gmail.com",
     license="MIT",
-    package_data={"wine_predictor_api": [], "dataset": ["*.csv"]},
+    package_data={"wine_predictor_api": ["specs/*.yaml"], "dataset": ["*.csv"]},
     packages=["wine_predictor_api"],
     include_package_data=True,
     install_requires=["connexion[swagger-ui]"],

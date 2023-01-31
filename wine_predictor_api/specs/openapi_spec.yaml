@@ -1,0 +1,23 @@
+openapi: 3.0.3
+info:
+  title: Wine predictor API
+  description: <p>The API provides the necessary parameters to create a prediction model using the wine dataset.</p>
+  version: 0.0.1
+  contact:
+    name: BlivionIaG
+    email: kev29lt@gmail.com
+    url: https://github.com/BlivionIaG/eunologie_api
+servers:
+  - url: /
+tags:
+  - name: Health
+    description: API health
+paths:
+  /ping:
+    get:
+      summary: Check API Health
+      operationId: wine_predictor_api.services.healthcheck.ping
+      tags: [Health]
+      responses:
+        "200":
+          description: OK health response
